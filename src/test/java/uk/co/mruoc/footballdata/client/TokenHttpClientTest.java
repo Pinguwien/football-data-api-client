@@ -15,6 +15,7 @@ public class TokenHttpClientTest {
 
     private final TokenHttpClient client = new TokenHttpClient();
 
+    
     @Test
     public void shouldPopulateTokenOnHeaderIfNotProvided() {
         Headers headers = new Headers();
