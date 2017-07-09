@@ -89,7 +89,7 @@ public class CompetitionTest {
 
     @Test
     public void shouldSetYear() {
-        int year = 2017;
+        String year = "2017";
 
         Competition competition = builder
                 .setYear(year)

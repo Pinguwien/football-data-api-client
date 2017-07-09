@@ -8,7 +8,7 @@ import java.util.Collection;
 
 public class CompetitionClient {
 
-    private final CompetitionParser parser = new CompetitionParser();
+    private final CompetitionsParser parser = new CompetitionsParser();
     private final HttpClient httpClient;
     private final EndpointProvider endpointProvider;
 

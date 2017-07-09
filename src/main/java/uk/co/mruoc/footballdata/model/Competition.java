@@ -12,7 +12,7 @@ public class Competition {
     private final int id;
     private final String name;
     private final String league;
-    private final int year;
+    private final String year;
     private final int currentMatchday;
     private final int numberOfMatchdays;
     private final int numberOfTeams;
@@ -64,7 +64,7 @@ public class Competition {
         return league;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
@@ -98,7 +98,7 @@ public class Competition {
         private int id;
         private String name;
         private String league;
-        private int year;
+        private String year;
         private int currentMatchday;
         private int numberOfMatchdays;
         private int numberOfTeams;
@@ -140,7 +140,7 @@ public class Competition {
             return this;
         }
 
-        public CompetitionBuilder setYear(int year) {
+        public CompetitionBuilder setYear(String year) {
             this.year = year;
             return this;
         }
