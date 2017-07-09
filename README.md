@@ -1,5 +1,7 @@
 # Football Data API Client
 
+[![Build Status](https://travis-ci.org/michaelruocco/football-data-api-client.svg?branch=master)](https://travis-ci.org/michaelruocco/football-data-api-client)
+
 This library provides an abstraction layer around the Football Data API described
 [here](http://www.football-data.org/index), full documentation for the API is
 available [here](http://www.football-data.org/documentation). The library aims to
