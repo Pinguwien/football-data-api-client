@@ -1,6 +1,8 @@
 # Football Data API Client
 
 [![Build Status](https://travis-ci.org/michaelruocco/football-data-api-client.svg?branch=master)](https://travis-ci.org/michaelruocco/football-data-api-client)
+[![Coverage Status](https://coveralls.io/repos/github/michaelruocco/football-data-api-client/badge.svg?branch=master)](https://coveralls.io/github/michaelruocco/football-data-api-client?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c2e0f78473547eab2ff8ea2e2abd857)](https://www.codacy.com/app/michaelruocco/football-data-api-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelruocco/football-data-api-client&amp;utm_campaign=Badge_Grade)
 
 This library provides an abstraction layer around the Football Data API described
 [here](http://www.football-data.org/index), full documentation for the API is
