@@ -4,15 +4,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import uk.co.mruoc.footballdata.model.Competition;
 import uk.co.mruoc.footballdata.model.Competition.CompetitionBuilder;
 
 public class CompetitionParser {
-
-    private final DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
     private final JsonParser parser = new JsonParser();
+    private final JsonExtractor extractor = new JsonExtractor();
 
     public Competition toCompetition(String jsonString) {
         JsonElement element = parser.parse(jsonString);
@@ -39,62 +36,55 @@ public class CompetitionParser {
     }
 
     private String parseSelfLink(JsonObject json) {
-        return loadLink(json, "self");
+        return extractor.extractLink(json, "self");
     }
 
     private String parseTeamsLink(JsonObject json) {
-        return loadLink(json, "teams");
+        return extractor.extractLink(json, "teams");
     }
 
     private String parseFixturesLink(JsonObject json) {
-        return loadLink(json, "fixtures");
+        return extractor.extractLink(json, "fixtures");
     }
 
     private String parseLeagueTableLink(JsonObject json) {
-        return loadLink(json, "leagueTable");
+        return extractor.extractLink(json, "leagueTable");
     }
 
     private int parseId(JsonObject json) {
-        return json.get("id").getAsInt();
+        return extractor.extractInt(json, "id");
     }
 
     private String parseName(JsonObject json) {
-        return json.get("caption").getAsString();
+        return extractor.extractString(json, "caption");
     }
 
     private String parseLeague(JsonObject json) {
-        return json.get("league").getAsString();
+        return extractor.extractString(json, "league");
     }
 
     private String parseYear(JsonObject json) {
-        return json.get("year").getAsString();
+        return extractor.extractString(json, "year");
     }
 
     private int parseCurrentMatchday(JsonObject json) {
-        return json.get("currentMatchday").getAsInt();
+        return extractor.extractInt(json, "currentMatchday");
     }
 
     private int parseNumberOfMatchdays(JsonObject json) {
-        return json.get("numberOfMatchdays").getAsInt();
+        return extractor.extractInt(json, "numberOfMatchdays");
     }
 
     private int parseNumberOfTeams(JsonObject json) {
-        return json.get("numberOfTeams").getAsInt();
+        return extractor.extractInt(json, "numberOfTeams");
     }
 
     private int parseNumberOfGames(JsonObject json) {
-        return json.get("numberOfGames").getAsInt();
+        return extractor.extractInt(json, "numberOfGames");
     }
 
     private DateTime parseLastUpdated(JsonObject json) {
-        String dateString = json.get("lastUpdated").getAsString();
-        return DateTime.parse(dateString, dateFormatter);
-    }
-
-    private String loadLink(JsonObject json, String name) {
-        JsonObject links = json.get("_links").getAsJsonObject();
-        JsonObject item = links.get(name).getAsJsonObject();
-        return item.get("href").getAsString();
+        return extractor.extractDate(json, "lastUpdated");
     }
 
 }

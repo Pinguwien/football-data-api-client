@@ -15,7 +15,7 @@ import java.util.List;
 public class TeamParser {
 
     private final JsonParser parser = new JsonParser();
-    private final JsonExractor exractor = new JsonExractor();
+    private final JsonExtractor exractor = new JsonExtractor();
     private final TeamUrlConverter teamUrlConverter = new TeamUrlConverter();
 
     public Collection<Team> toTeams(String jsonString) {
