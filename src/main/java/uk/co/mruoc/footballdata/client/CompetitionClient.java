@@ -18,7 +18,7 @@ public class CompetitionClient {
     }
 
     public Collection<Competition> load() {
-        Response response = httpClient.get(endpointProvider.getBase());
+        Response response = httpClient.get(endpointProvider.getCompetitions());
         return toCompetitions(response);
     }
 

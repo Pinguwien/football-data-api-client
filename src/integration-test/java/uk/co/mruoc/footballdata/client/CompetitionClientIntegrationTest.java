@@ -1,8 +1,12 @@
 package uk.co.mruoc.footballdata.client;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Competition;
 import uk.co.mruoc.http.client.HttpClient;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,6 +24,24 @@ public class CompetitionClientIntegrationTest {
 
         assertThat(competition.getId()).isEqualTo(id);
         assertThat(competition.getCaption()).isEqualTo("Premier League 2017/18");
+        assertThat(competition.getLeague()).isEqualTo("PL");
+        assertThat(competition.getYear()).isEqualTo("2017");
+        assertThat(competition.getCurrentMatchday()).isEqualTo(1);
+        assertThat(competition.getNumberOfMatchdays()).isEqualTo(38);
+        assertThat(competition.getNumberOfTeams()).isEqualTo(20);
+        assertThat(competition.getNumberOfGames()).isEqualTo(380);
+        assertThat(competition.getLastUpdated()).isEqualTo(new DateTime()
+                .withDate(2017,6, 27)
+                .withTime(14, 10, 19, 0));
+    }
+
+    @Test
+    public void shouldLoadCompetitions() {
+        List<Competition> competitions = new ArrayList<>(competitionClient.load());
+
+        assertThat(competitions.size()).isEqualTo(10);
+        assertThat(competitions.get(0).getId()).isEqualTo(444);
+        assertThat(competitions.get(9).getId()).isEqualTo(453);
     }
 
 }
