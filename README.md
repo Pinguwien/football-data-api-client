@@ -33,6 +33,9 @@ The integration tests also take around 2 or 3 minutes to run, this is
 why they have been split out from the unit tests so each set of tests
 can be run independently.
 
+Note - For the integration tests to run you must set an environment variable of
+FOOTBALL_DATA_API_TOKEN={your-api-token}.
+
 ### Running the unit tests
 
 To run just the unit tests you can run the command:
@@ -45,6 +48,9 @@ gradlew clean build -x integrationTest
 
 The integration tests make use of docker, so you will need to have a docker
 daemon running on your machine for them to work.
+
+Note - For the integration tests to run you must set an environment variable of
+FOOTBALL_DATA_API_TOKEN={your-api-token}.
 
 To run just the integration tests you can run the command:
 
