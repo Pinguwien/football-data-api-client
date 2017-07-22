@@ -1,6 +1,5 @@
 package uk.co.mruoc.footballdata.client;
 
-import org.joda.time.DateTime;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Team;
 import uk.co.mruoc.properties.ClasspathFileContentLoader;
