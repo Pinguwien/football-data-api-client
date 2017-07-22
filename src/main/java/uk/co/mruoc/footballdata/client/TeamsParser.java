@@ -5,7 +5,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import uk.co.mruoc.footballdata.model.Team;
-import uk.co.mruoc.footballdata.model.Team.TeamBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,10 +17,12 @@ public class TeamsParser {
 
     public List<Team> toTeams(String jsonString) {
         JsonElement element = jsonParser.parse(jsonString);
-        JsonElement teams = element.getAsJsonObject().get("teams");
-        if (teams.isJsonArray())
-            return toTeams(teams.getAsJsonArray());
-        return toTeams(teams.getAsJsonObject());
+        if (element.isJsonArray())
+            return toTeams(element.getAsJsonArray());
+        JsonObject object = element.getAsJsonObject();
+        if (object.has("teams"))
+            return toTeams(object.get("teams").getAsJsonArray());
+        return toTeams(object);
     }
 
     public Team toTeam(String jsonString) {

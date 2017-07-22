@@ -5,7 +5,6 @@ import uk.co.mruoc.footballdata.model.Competition;
 import uk.co.mruoc.properties.ClasspathFileContentLoader;
 import uk.co.mruoc.properties.FileContentLoader;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class CompetitionsParserTest {
     private final CompetitionsParser parser = new CompetitionsParser();
 
     @Test
-    public void shouldMultipleCompetitions() {
+    public void shouldParseMultipleCompetitions() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Collection<Competition> competitions = parser.toCompetitions(json);
@@ -28,27 +27,27 @@ public class CompetitionsParserTest {
     }
 
     @Test
-    public void shouldLoadFirstCompetition() {
+    public void shouldParseFirstCompetition() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
-        List<Competition> competitions = new ArrayList<>(parser.toCompetitions(json));
+        List<Competition> competitions = parser.toCompetitions(json);
 
         Competition competition = competitions.get(0);
         assertThat(competition.getId()).isEqualTo(444);
     }
 
     @Test
-    public void shouldLoadSecondCompetition() {
+    public void shouldParseSecondCompetition() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
-        List<Competition> competitions = new ArrayList<>(parser.toCompetitions(json));
+        List<Competition> competitions = parser.toCompetitions(json);
 
         Competition competition = competitions.get(1);
         assertThat(competition.getId()).isEqualTo(445);
     }
 
     @Test
-    public void shouldLoadSingleCompetition() {
+    public void shouldParseSingleCompetition() {
         String singleJsonFilePath = "/competition.json";
         String json = loader.loadContent(singleJsonFilePath);
 

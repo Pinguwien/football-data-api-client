@@ -16,7 +16,7 @@ public class CompetitionParserTest {
     private final CompetitionParser parser = new CompetitionParser();
 
     @Test
-    public void shouldLoadSelfLink() {
+    public void shouldParseSelfLink() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -25,7 +25,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadTeamsLink() {
+    public void shouldParseTeamsLink() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -34,7 +34,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadFixturesLink() {
+    public void shouldParseFixturesLink() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -43,7 +43,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadLeagueTableLink() {
+    public void shouldParseLeagueTableLink() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -52,7 +52,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadId() {
+    public void shouldParseId() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -61,7 +61,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadCaption() {
+    public void shouldParseCaption() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -70,7 +70,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadLeague() {
+    public void shouldParseLeague() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -79,7 +79,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadYear() {
+    public void shouldParseYear() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -88,7 +88,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadCurrentMatchday() {
+    public void shouldParseCurrentMatchday() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -97,7 +97,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadNumberOfMatchdays() {
+    public void shouldParseNumberOfMatchdays() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -106,7 +106,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadNumberOfTeams() {
+    public void shouldParseNumberOfTeams() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -115,7 +115,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadNumberOfGames() {
+    public void shouldParseNumberOfGames() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
@@ -124,7 +124,7 @@ public class CompetitionParserTest {
     }
 
     @Test
-    public void shouldLoadLastUpdated() {
+    public void shouldParseLastUpdated() {
         String json = loader.loadContent(JSON_FILE_PATH);
 
         Competition competition = parser.toCompetition(json);
