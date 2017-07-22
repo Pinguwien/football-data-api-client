@@ -48,12 +48,29 @@ public class TeamsParserTest {
 
     @Test
     public void shouldParseSingleTeam() {
-        String singleJsonFilePath = "/team.json";
-        String json = loader.loadContent(singleJsonFilePath);
+        String json = loader.loadContent("/team.json");
+
+        Team team = parser.toTeam(json);
+
+        assertThat(team.getId()).isEqualTo(57);
+    }
+
+    @Test
+    public void shouldParseSingleTeamToList() {
+        String json = loader.loadContent("/team.json");
 
         Collection<Team> teams = parser.toTeams(json);
 
         assertThat(teams.size()).isEqualTo(1);
+    }
+
+    @Test
+    public void shouldParseMultipleCompetitionTeams() {
+        String json = loader.loadContent("/competitionTeams.json");
+
+        Collection<Team> teams = parser.toTeams(json);
+
+        assertThat(teams.size()).isEqualTo(2);
     }
 
 }

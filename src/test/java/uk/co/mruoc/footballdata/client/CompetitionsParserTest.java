@@ -51,6 +51,16 @@ public class CompetitionsParserTest {
         String singleJsonFilePath = "/competition.json";
         String json = loader.loadContent(singleJsonFilePath);
 
+        Competition competition = parser.toCompetition(json);
+
+        assertThat(competition.getId()).isEqualTo(445);
+    }
+
+    @Test
+    public void shouldParseSingleCompetitionToList() {
+        String singleJsonFilePath = "/competition.json";
+        String json = loader.loadContent(singleJsonFilePath);
+
         Collection<Competition> competitions = parser.toCompetitions(json);
 
         assertThat(competitions.size()).isEqualTo(1);

@@ -9,28 +9,20 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 public class SystemPropertyTokenProvider implements TokenProvider {
 
     private static final String TOKEN_PROPERTY_NAME = "footballDataApiToken";
-    private static final String TOKEN = loadToken();
 
-    private static String loadToken() {
+    @Override
+    public String getToken() {
         Properties systemProperties = System.getProperties();
         if (!systemProperties.containsKey(TOKEN_PROPERTY_NAME))
             return EMPTY;
 
-        String token = systemProperties.getProperty(TOKEN_PROPERTY_NAME);
-        if (token == null)
-            return EMPTY;
-
-        return token;
-    }
-
-    @Override
-    public String getToken() {
-        return TOKEN;
+        return systemProperties.getProperty(TOKEN_PROPERTY_NAME);
     }
 
     @Override
     public boolean hasToken() {
-        return StringUtils.isNotEmpty(TOKEN);
+        String token = getToken();
+        return StringUtils.isNotEmpty(token);
     }
 
 }

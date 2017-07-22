@@ -47,6 +47,7 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.9.5'
     testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
     testCompile group: 'com.github.michaelruocco', name: 'property-loader', version: '2.0.1'
+    testCompile group: 'com.github.stefanbirkner', name: 'system-rules', version: '1.16.0'
 }
 
 task integrationTest(type: Test) {
