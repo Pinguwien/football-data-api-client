@@ -3,6 +3,7 @@ package uk.co.mruoc.footballdata.client;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 import uk.co.mruoc.http.client.Headers;
+import uk.co.mruoc.http.client.ReadOnlyHttpClient;
 import uk.co.mruoc.http.client.Response;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,10 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TokenHttpClientTest {
 
     private static final String ENDPOINT = "http://api.football-data.org/v1/competitions/";
-    private static final String VALID_TOKEN = System.getProperty("footballDataApiToken");
     private static final String INVALID_TOKEN = "INVALID_TOKEN";
 
-    private final TokenHttpClient client = new TokenHttpClient();
+    private final TokenProvider tokenProvider = new DefaultTokenProvider();
+    private final ReadOnlyHttpClient client = new TokenHttpClient(tokenProvider);
 
     @Test
     public void shouldPopulateTokenOnHeaderIfNotProvided() {
@@ -21,11 +22,11 @@ public class TokenHttpClientTest {
 
         client.get(ENDPOINT, headers);
 
-        assertThat(headers.getAuthToken()).isEqualTo(VALID_TOKEN);
+        assertThat(headers.getAuthToken()).isEqualTo(tokenProvider.getToken());
     }
 
     @Test
-    public void shouldNotPopulateTokenOnHeaderIfAlreadyProvided() {
+    public void shouldNotPopulateTokenOnHeaderIfProvided() {
         Headers headers = new Headers();
         headers.addAuthToken(INVALID_TOKEN);
 

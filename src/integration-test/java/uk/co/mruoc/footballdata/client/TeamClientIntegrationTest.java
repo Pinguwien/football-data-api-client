@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TeamClientIntegrationTest {
 
-    private final HttpClient httpClient = new TokenHttpClient();
+    private final TokenHttpClient httpClient = new TokenHttpClient();
     private final EndpointProvider endpointProvider = new V1EndpointProvider();
     private final TeamClient teamClient = new TeamClient(httpClient, endpointProvider);
 

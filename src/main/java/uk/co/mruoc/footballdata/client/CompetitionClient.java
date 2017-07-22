@@ -1,19 +1,18 @@
 package uk.co.mruoc.footballdata.client;
 
 import uk.co.mruoc.footballdata.model.Competition;
-import uk.co.mruoc.http.client.HttpClient;
+import uk.co.mruoc.http.client.ReadOnlyHttpClient;
 import uk.co.mruoc.http.client.Response;
 
-import java.util.Collection;
 import java.util.List;
 
 public class CompetitionClient {
 
     private final CompetitionsParser parser = new CompetitionsParser();
-    private final HttpClient httpClient;
+    private final ReadOnlyHttpClient httpClient;
     private final EndpointProvider endpointProvider;
 
-    public CompetitionClient(HttpClient httpClient, EndpointProvider endpointProvider) {
+    public CompetitionClient(ReadOnlyHttpClient httpClient, EndpointProvider endpointProvider) {
         this.httpClient = httpClient;
         this.endpointProvider = endpointProvider;
     }

@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CompetitionClientIntegrationTest {
 
-    private final HttpClient httpClient = new TokenHttpClient();
+    private final TokenHttpClient httpClient = new TokenHttpClient();
     private final EndpointProvider endpointProvider = new V1EndpointProvider();
     private final CompetitionClient competitionClient = new CompetitionClient(httpClient, endpointProvider);
 

@@ -1,7 +1,7 @@
 package uk.co.mruoc.footballdata.client;
 
 import uk.co.mruoc.footballdata.model.Team;
-import uk.co.mruoc.http.client.HttpClient;
+import uk.co.mruoc.http.client.ReadOnlyHttpClient;
 import uk.co.mruoc.http.client.Response;
 
 import java.util.List;
@@ -9,10 +9,10 @@ import java.util.List;
 public class TeamClient {
 
     private final TeamsParser parser = new TeamsParser();
-    private final HttpClient httpClient;
+    private final ReadOnlyHttpClient httpClient;
     private final EndpointProvider endpointProvider;
 
-    public TeamClient(HttpClient httpClient, EndpointProvider endpointProvider) {
+    public TeamClient(ReadOnlyHttpClient httpClient, EndpointProvider endpointProvider) {
         this.httpClient = httpClient;
         this.endpointProvider = endpointProvider;
     }

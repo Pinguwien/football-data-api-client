@@ -1,32 +1,37 @@
 package uk.co.mruoc.footballdata.client;
 
-import uk.co.mruoc.http.client.Headers;
-import uk.co.mruoc.http.client.Response;
-import uk.co.mruoc.http.client.SimpleHttpClient;
+import uk.co.mruoc.http.client.*;
 
-public class TokenHttpClient extends SimpleHttpClient {
+public class TokenHttpClient implements ReadOnlyHttpClient {
 
+    private final ReadOnlyHttpClient httpClient;
     private final String token;
 
     public TokenHttpClient() {
-        this(System.getProperty("footballDataApiToken"));
+        this(new SimpleHttpClient(), new DefaultTokenProvider());
     }
 
-    public TokenHttpClient(String token) {
-        this.token = token;
+    public TokenHttpClient(TokenProvider tokenProvider) {
+        this(new SimpleHttpClient(), tokenProvider);
+    }
+
+    public TokenHttpClient(HttpClient httpClient, TokenProvider tokenProvider) {
+        this.httpClient = httpClient;
+        this.token = tokenProvider.getToken();
+        System.out.println("token " + token);
     }
 
     @Override
     public Response get(String endpoint) {
         Headers headers = new Headers();
-        return this.get(endpoint, headers);
+        return httpClient.get(endpoint, headers);
     }
 
     @Override
     public Response get(String endpoint, Headers headers) {
         if (!headers.hasAuthToken())
             headers.addAuthToken(token);
-        return super.get(endpoint, headers);
+        return httpClient.get(endpoint, headers);
     }
 
 }
