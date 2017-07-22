@@ -1,10 +1,12 @@
 package uk.co.mruoc.footballdata.client;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 import org.junit.contrib.java.lang.system.RestoreSystemProperties;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DefaultTokenProviderTest {
@@ -50,6 +52,9 @@ public class DefaultTokenProviderTest {
 
     @Test
     public void noValueShouldBeReturnedWhenNeitherPropertyOrVariableIsSet() {
+        System.setProperty(PROPERTY_NAME, EMPTY);
+        environmentVariables.set(VARIABLE_NAME, EMPTY);
+
         assertThat(tokenProvider.getToken()).isEmpty();
         assertThat(tokenProvider.hasToken()).isFalse();
     }
