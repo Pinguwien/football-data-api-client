@@ -17,7 +17,7 @@ public class CompetitionParser {
         return toCompetition(json);
     }
 
-    private Competition toCompetition(JsonObject json) {
+    public Competition toCompetition(JsonObject json) {
         return new CompetitionBuilder()
                 .setSelfLink(parseSelfLink(json))
                 .setTeamsLink(parseTeamsLink(json))

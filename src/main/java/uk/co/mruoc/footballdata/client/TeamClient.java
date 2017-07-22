@@ -4,11 +4,11 @@ import uk.co.mruoc.footballdata.model.Team;
 import uk.co.mruoc.http.client.HttpClient;
 import uk.co.mruoc.http.client.Response;
 
-import java.util.Collection;
+import java.util.List;
 
 public class TeamClient {
 
-    private final TeamParser parser = new TeamParser();
+    private final TeamsParser parser = new TeamsParser();
     private final HttpClient httpClient;
     private final EndpointProvider endpointProvider;
 
@@ -17,10 +17,16 @@ public class TeamClient {
         this.endpointProvider = endpointProvider;
     }
 
-    public Collection<Team> load(int competitionId) {
+    public List<Team> loadCompetitionTeams(int competitionId) {
         String endpoint = endpointProvider.getTeams(competitionId);
         Response response = httpClient.get(endpoint);
         return parser.toTeams(response.getBody());
+    }
+
+    public Team load(int teamId) {
+        String endpoint = endpointProvider.getTeam(teamId);
+        Response response = httpClient.get(endpoint);
+        return parser.toTeam(response.getBody());
     }
 
 }

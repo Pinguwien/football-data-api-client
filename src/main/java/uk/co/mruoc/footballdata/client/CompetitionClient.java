@@ -5,6 +5,7 @@ import uk.co.mruoc.http.client.HttpClient;
 import uk.co.mruoc.http.client.Response;
 
 import java.util.Collection;
+import java.util.List;
 
 public class CompetitionClient {
 
@@ -17,22 +18,14 @@ public class CompetitionClient {
         this.endpointProvider = endpointProvider;
     }
 
-    public Collection<Competition> load() {
+    public List<Competition> load() {
         Response response = httpClient.get(endpointProvider.getCompetitions());
-        return toCompetitions(response);
+        return parser.toCompetitions(response.getBody());
     }
 
     public Competition load(int id) {
         String endpoint = endpointProvider.getCompetition(id);
         Response response = httpClient.get(endpoint);
-        return toCompetition(response);
-    }
-
-    private Collection<Competition> toCompetitions(Response response) {
-        return parser.toCompetitions(response.getBody());
-    }
-
-    private Competition toCompetition(Response response) {
         return parser.toCompetition(response.getBody());
     }
 

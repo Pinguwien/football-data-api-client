@@ -6,6 +6,8 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.math.BigDecimal;
+
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 public class JsonExtractor {
@@ -28,6 +30,15 @@ public class JsonExtractor {
         if (element.isJsonNull())
             return 0;
         return element.getAsInt();
+    }
+
+    public BigDecimal extractBigDecimal(JsonObject json, String name) {
+        if (!json.has(name))
+            return BigDecimal.ZERO;
+        JsonElement element = json.get(name);
+        if (element.isJsonNull())
+            return BigDecimal.ZERO;
+        return element.getAsBigDecimal();
     }
 
     public String extractLink(JsonObject json, String name) {

@@ -7,17 +7,16 @@ import com.google.gson.JsonParser;
 import uk.co.mruoc.footballdata.model.Competition;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 public class CompetitionsParser {
 
+    private final JsonParser jsonParser = new JsonParser();
     private final CompetitionParser competitionParser = new CompetitionParser();
-    private final JsonParser parser = new JsonParser();
 
-    public Collection<Competition> toCompetitions(String jsonString) {
-        JsonElement element = parser.parse(jsonString);
+    public List<Competition> toCompetitions(String jsonString) {
+        JsonElement element = jsonParser.parse(jsonString);
         if (element.isJsonArray())
             return toCompetitions(element.getAsJsonArray());
         return toCompetitions(element.getAsJsonObject());
@@ -27,18 +26,18 @@ public class CompetitionsParser {
         return competitionParser.toCompetition(jsonString);
     }
 
-    private Collection<Competition> toCompetitions(JsonArray array) {
+    private List<Competition> toCompetitions(JsonArray array) {
         List<Competition> competitions = new ArrayList<>();
         array.forEach(item -> competitions.add(toCompetition(item.getAsJsonObject())));
         return competitions;
     }
 
-    private Collection<Competition> toCompetitions(JsonObject json) {
+    private List<Competition> toCompetitions(JsonObject json) {
         return Collections.singletonList(toCompetition(json));
     }
 
-    private Competition toCompetition(JsonObject object) {
-        return toCompetition(object.toString());
+    private Competition toCompetition(JsonObject json) {
+        return competitionParser.toCompetition(json);
     }
 
 }

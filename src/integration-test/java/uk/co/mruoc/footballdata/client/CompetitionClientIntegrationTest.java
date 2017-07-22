@@ -5,7 +5,6 @@ import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Competition;
 import uk.co.mruoc.http.client.HttpClient;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,10 +16,24 @@ public class CompetitionClientIntegrationTest {
     private final CompetitionClient competitionClient = new CompetitionClient(httpClient, endpointProvider);
 
     @Test
+    public void shouldLoadCompetitions() {
+        List<Competition> competitions = competitionClient.load();
+
+        assertThat(competitions.size()).isEqualTo(11);
+        assertThat(competitions.get(0).getId()).isEqualTo(444);
+        assertThat(competitions.get(9).getId()).isEqualTo(453);
+    }
+
+    @Test
     public void shouldLoadCompetition() {
         int id = 445;
 
         Competition competition = competitionClient.load(id);
+
+        assertThat(competition.getSelfLink()).isEqualTo("http://api.football-data.org/v1/competitions/445");
+        assertThat(competition.getTeamsLink()).isEqualTo("http://api.football-data.org/v1/competitions/445/teams");
+        assertThat(competition.getFixturesLink()).isEqualTo("http://api.football-data.org/v1/competitions/445/fixtures");
+        assertThat(competition.getLeagueTableLink()).isEqualTo("http://api.football-data.org/v1/competitions/445/leagueTable");
 
         assertThat(competition.getId()).isEqualTo(id);
         assertThat(competition.getCaption()).isEqualTo("Premier League 2017/18");
@@ -33,15 +46,6 @@ public class CompetitionClientIntegrationTest {
         assertThat(competition.getLastUpdated()).isEqualTo(new DateTime()
                 .withDate(2017,6, 27)
                 .withTime(14, 10, 19, 0));
-    }
-
-    @Test
-    public void shouldLoadCompetitions() {
-        List<Competition> competitions = new ArrayList<>(competitionClient.load());
-
-        assertThat(competitions.size()).isEqualTo(10);
-        assertThat(competitions.get(0).getId()).isEqualTo(444);
-        assertThat(competitions.get(9).getId()).isEqualTo(453);
     }
 
 }
