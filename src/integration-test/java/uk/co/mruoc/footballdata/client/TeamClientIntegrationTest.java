@@ -2,7 +2,6 @@ package uk.co.mruoc.footballdata.client;
 
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Team;
-import uk.co.mruoc.http.client.HttpClient;
 
 import java.math.BigDecimal;
 import java.util.List;

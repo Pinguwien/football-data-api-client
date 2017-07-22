@@ -3,7 +3,6 @@ package uk.co.mruoc.footballdata.client;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Competition;
-import uk.co.mruoc.http.client.HttpClient;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package uk.co.mruoc.footballdata.client;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
