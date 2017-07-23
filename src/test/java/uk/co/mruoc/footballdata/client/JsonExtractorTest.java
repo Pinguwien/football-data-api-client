@@ -1,6 +1,8 @@
 package uk.co.mruoc.footballdata.client;
 
 import com.google.gson.JsonObject;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -68,6 +70,33 @@ public class JsonExtractorTest {
         json.addProperty("value", 25);
 
         assertThat(extractor.extractBigDecimal(json, "value")).isEqualTo(BigDecimal.valueOf(25));
+    }
+
+    @Test
+    public void shouldExtractDateTime() {
+        json.addProperty("value", "2017-06-27T14:10:19Z");
+
+        assertThat(extractor.extractDateTime(json, "value")).isEqualTo(expectedDateTime());
+    }
+
+    @Test
+    public void shouldExtractLocalDate() {
+        json.addProperty("value", "2017-06-27");
+
+        assertThat(extractor.extractLocalDate(json, "value")).isEqualTo(expectedLocalDate());
+    }
+
+    private DateTime expectedDateTime() {
+        return new DateTime()
+                .withDate(2017,6, 27)
+                .withTime(14, 10, 19, 0);
+    }
+
+    private LocalDate expectedLocalDate() {
+        return new LocalDate()
+                .withDayOfMonth(27)
+                .withMonthOfYear(6)
+                .withYear(2017);
     }
 
 }

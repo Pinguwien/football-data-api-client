@@ -84,7 +84,7 @@ public class CompetitionParser {
     }
 
     private DateTime parseLastUpdated(JsonObject json) {
-        return extractor.extractDate(json, "lastUpdated");
+        return extractor.extractDateTime(json, "lastUpdated");
     }
 
 }

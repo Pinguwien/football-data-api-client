@@ -42,9 +42,13 @@ public class CompetitionClientIntegrationTest {
         assertThat(competition.getNumberOfMatchdays()).isEqualTo(38);
         assertThat(competition.getNumberOfTeams()).isEqualTo(20);
         assertThat(competition.getNumberOfGames()).isEqualTo(380);
-        assertThat(competition.getLastUpdated()).isEqualTo(new DateTime()
+        assertThat(competition.getLastUpdated()).isEqualTo(expectedLastUpdatedDateTime());
+    }
+
+    private DateTime expectedLastUpdatedDateTime() {
+        return new DateTime()
                 .withDate(2017,6, 27)
-                .withTime(14, 10, 19, 0));
+                .withTime(14, 10, 19, 0);
     }
 
 }
