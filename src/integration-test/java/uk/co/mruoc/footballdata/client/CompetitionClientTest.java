@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CompetitionClientIntegrationTest {
+public class CompetitionClientTest {
 
     private final ReadOnlyHttpClient httpClient = new TokenHttpClient();
     private final EndpointProvider endpointProvider = new V1EndpointProvider();
