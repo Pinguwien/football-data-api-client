@@ -3,9 +3,10 @@ package uk.co.mruoc.footballdata.client;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.joda.time.DateTime;
 import uk.co.mruoc.footballdata.model.Competition;
 import uk.co.mruoc.footballdata.model.Competition.CompetitionBuilder;
+
+import java.time.LocalDateTime;
 
 public class CompetitionParser {
     private final JsonParser parser = new JsonParser();
@@ -83,7 +84,7 @@ public class CompetitionParser {
         return extractor.extractInt(json, "numberOfGames");
     }
 
-    private DateTime parseLastUpdated(JsonObject json) {
+    private LocalDateTime parseLastUpdated(JsonObject json) {
         return extractor.extractDateTime(json, "lastUpdated");
     }
 

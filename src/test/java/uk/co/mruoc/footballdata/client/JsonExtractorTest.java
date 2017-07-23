@@ -1,11 +1,11 @@
 package uk.co.mruoc.footballdata.client;
 
 import com.google.gson.JsonObject;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -86,17 +86,21 @@ public class JsonExtractorTest {
         assertThat(extractor.extractLocalDate(json, "value")).isEqualTo(expectedLocalDate());
     }
 
-    private DateTime expectedDateTime() {
-        return new DateTime()
-                .withDate(2017,6, 27)
-                .withTime(14, 10, 19, 0);
+    @Test
+    public void shouldReturnDefaultValueIfValueIsNull() {
+        json.add("value", null);
+
+        LocalDate defaultValue = LocalDate.MAX;
+
+        assertThat(extractor.extractLocalDate(json, "value", defaultValue)).isEqualTo(defaultValue);
+    }
+
+    private LocalDateTime expectedDateTime() {
+        return LocalDateTime.of(2017,6, 27, 14, 10, 19, 0);
     }
 
     private LocalDate expectedLocalDate() {
-        return new LocalDate()
-                .withDayOfMonth(27)
-                .withMonthOfYear(6)
-                .withYear(2017);
+        return LocalDate.of(2017, 6, 27);
     }
 
 }

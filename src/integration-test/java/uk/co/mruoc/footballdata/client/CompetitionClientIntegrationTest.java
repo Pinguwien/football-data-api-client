@@ -1,16 +1,17 @@
 package uk.co.mruoc.footballdata.client;
 
-import org.joda.time.DateTime;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Competition;
+import uk.co.mruoc.http.client.ReadOnlyHttpClient;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CompetitionClientIntegrationTest {
 
-    private final TokenHttpClient httpClient = new TokenHttpClient();
+    private final ReadOnlyHttpClient httpClient = new TokenHttpClient();
     private final EndpointProvider endpointProvider = new V1EndpointProvider();
     private final CompetitionClient competitionClient = new CompetitionClient(httpClient, endpointProvider);
 
@@ -45,10 +46,8 @@ public class CompetitionClientIntegrationTest {
         assertThat(competition.getLastUpdated()).isEqualTo(expectedLastUpdatedDateTime());
     }
 
-    private DateTime expectedLastUpdatedDateTime() {
-        return new DateTime()
-                .withDate(2017,6, 27)
-                .withTime(14, 10, 19, 0);
+    private LocalDateTime expectedLastUpdatedDateTime() {
+        return LocalDateTime.of(2017,6, 27, 14, 10, 19, 0);
     }
 
 }

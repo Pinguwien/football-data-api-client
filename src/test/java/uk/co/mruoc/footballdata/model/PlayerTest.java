@@ -1,10 +1,10 @@
 package uk.co.mruoc.footballdata.model;
 
-import org.joda.time.LocalDate;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Player.PlayerBuilder;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

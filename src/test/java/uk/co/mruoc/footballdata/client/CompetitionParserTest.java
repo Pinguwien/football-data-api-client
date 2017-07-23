@@ -1,10 +1,11 @@
 package uk.co.mruoc.footballdata.client;
 
-import org.joda.time.DateTime;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Competition;
 import uk.co.mruoc.properties.ClasspathFileContentLoader;
 import uk.co.mruoc.properties.FileContentLoader;
+
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -129,9 +130,11 @@ public class CompetitionParserTest {
 
         Competition competition = parser.toCompetition(json);
 
-        assertThat(competition.getLastUpdated()).isEqualTo(new DateTime()
-                .withDate(2017, 6, 27)
-                .withTime(14, 10, 19, 0));
+        assertThat(competition.getLastUpdated()).isEqualTo(expectedLastUpdated());
+    }
+
+    private LocalDateTime expectedLastUpdated() {
+        return LocalDateTime.of(2017, 6, 27, 14, 10, 19, 0);
     }
 
 }

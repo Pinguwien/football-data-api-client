@@ -1,6 +1,6 @@
 package uk.co.mruoc.footballdata.model;
 
-import org.joda.time.DateTime;
+import java.time.LocalDateTime;
 
 public class Competition {
 
@@ -17,7 +17,7 @@ public class Competition {
     private final int numberOfMatchdays;
     private final int numberOfTeams;
     private final int numberOfGames;
-    private final DateTime lastUpdated;
+    private final LocalDateTime lastUpdated;
 
     private Competition(CompetitionBuilder builder) {
         this.selfLink = builder.selfLink;
@@ -84,7 +84,7 @@ public class Competition {
         return numberOfGames;
     }
 
-    public DateTime getLastUpdated() {
+    public LocalDateTime getLastUpdated() {
         return lastUpdated;
     }
 
@@ -103,7 +103,7 @@ public class Competition {
         private int numberOfMatchdays;
         private int numberOfTeams;
         private int numberOfGames;
-        private DateTime lastUpdated;
+        private LocalDateTime lastUpdated;
 
         public CompetitionBuilder setSelfLink(String selfLink) {
             this.selfLink = selfLink;
@@ -165,7 +165,7 @@ public class Competition {
             return this;
         }
 
-        public CompetitionBuilder setLastUpdated(DateTime lastUpdated) {
+        public CompetitionBuilder setLastUpdated(LocalDateTime lastUpdated) {
             this.lastUpdated = lastUpdated;
             return this;
         }

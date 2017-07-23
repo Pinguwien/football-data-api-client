@@ -3,10 +3,10 @@ package uk.co.mruoc.footballdata.client;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.joda.time.LocalDate;
 import uk.co.mruoc.footballdata.model.Player;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class PlayerParser {
 
@@ -52,7 +52,7 @@ public class PlayerParser {
     }
 
     private LocalDate parseContractUntil(JsonObject json) {
-        return extractor.extractLocalDate(json, "contractUntil");
+        return extractor.extractLocalDate(json, "contractUntil", LocalDate.MAX);
     }
 
     private BigDecimal parseMarketValue(JsonObject json) {

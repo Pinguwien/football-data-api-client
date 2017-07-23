@@ -1,12 +1,12 @@
 package uk.co.mruoc.footballdata.client;
 
-import org.joda.time.LocalDate;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Player;
 import uk.co.mruoc.properties.ClasspathFileContentLoader;
 import uk.co.mruoc.properties.FileContentLoader;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -50,10 +50,7 @@ public class PlayerParserTest {
 
         Player player = parser.toPlayer(json);
 
-        assertThat(player.getDateOfBirth()).isEqualTo(new LocalDate()
-                .withDayOfMonth(20)
-                .withMonthOfYear(5)
-                .withYear(1982));
+        assertThat(player.getDateOfBirth()).isEqualTo(LocalDate.of(1982, 5,20));
     }
 
     @Test
@@ -71,10 +68,7 @@ public class PlayerParserTest {
 
         Player player = parser.toPlayer(json);
 
-        assertThat(player.getContractUntil()).isEqualTo(new LocalDate()
-                .withDayOfMonth(30)
-                .withMonthOfYear(6)
-                .withYear(2019));
+        assertThat(player.getContractUntil()).isEqualTo(LocalDate.of(2019, 6, 30));
     }
 
     @Test
@@ -86,4 +80,12 @@ public class PlayerParserTest {
         assertThat(player.getMarketValue()).isEqualTo(BigDecimal.ZERO);
     }
 
+    @Test
+    public void shouldParseContractUntilAsMaxDateIfNull() {
+        String json = loader.loadContent("/no-contract-until-player.json");
+
+        Player player = parser.toPlayer(json);
+
+        assertThat(player.getContractUntil()).isEqualTo(LocalDate.MAX);
+    }
 }

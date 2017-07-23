@@ -2,6 +2,7 @@ package uk.co.mruoc.footballdata.client;
 
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Team;
+import uk.co.mruoc.http.client.ReadOnlyHttpClient;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -10,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TeamClientIntegrationTest {
 
-    private final TokenHttpClient httpClient = new TokenHttpClient();
+    private final ReadOnlyHttpClient httpClient = new TokenHttpClient();
     private final EndpointProvider endpointProvider = new V1EndpointProvider();
     private final TeamClient teamClient = new TeamClient(httpClient, endpointProvider);
 

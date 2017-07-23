@@ -1,8 +1,9 @@
 package uk.co.mruoc.footballdata.model;
 
-import org.joda.time.DateTime;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Competition.CompetitionBuilder;
+
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -144,7 +145,7 @@ public class CompetitionTest {
 
     @Test
     public void shouldSetLastUpdated() {
-        DateTime lastUpdated = DateTime.now();
+        LocalDateTime lastUpdated = LocalDateTime.now();
 
         Competition competition = builder
                 .setLastUpdated(lastUpdated)
