@@ -12,14 +12,16 @@ import java.util.List;
 
 public class TeamsParser {
 
+    private static final String FIELD_NAME = "teams";
+
     private final JsonParser jsonParser = new JsonParser();
     private final TeamParser teamParser = new TeamParser();
 
     public List<Team> toTeams(String jsonString) {
         JsonElement element = jsonParser.parse(jsonString);
         JsonObject object = element.getAsJsonObject();
-        if (object.has("teams"))
-            return toTeams(object.get("teams").getAsJsonArray());
+        if (object.has(FIELD_NAME))
+            return toTeams(object.get(FIELD_NAME).getAsJsonArray());
         return toTeams(object);
     }
 

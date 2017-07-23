@@ -7,7 +7,7 @@
       href: "http://api.football-data.org/v1/competitions/445"
     }
   },
-  count: 20,
+  count: 2,
   teams: [
     {
       _links: {

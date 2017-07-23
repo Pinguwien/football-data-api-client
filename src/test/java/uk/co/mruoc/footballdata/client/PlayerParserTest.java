@@ -3,7 +3,6 @@ package uk.co.mruoc.footballdata.client;
 import org.joda.time.LocalDate;
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Player;
-import uk.co.mruoc.footballdata.model.Team;
 import uk.co.mruoc.properties.ClasspathFileContentLoader;
 import uk.co.mruoc.properties.FileContentLoader;
 

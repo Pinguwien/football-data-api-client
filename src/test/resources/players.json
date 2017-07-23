@@ -1,0 +1,31 @@
+{
+  _links: {
+    self: {
+      href: "http://api.football-data.org/v1/teams/57/players"
+    },
+    team: {
+      href: "http://api.football-data.org/v1/teams/57"
+    }
+  },
+  count: 2,
+  players: [
+    {
+      name: "Petr Cech",
+      position: "Keeper",
+      jerseyNumber: 33,
+      dateOfBirth: "1982-05-20",
+      nationality: "Czech Republic",
+      contractUntil: "2019-06-30",
+      marketValue: null
+    },
+    {
+      name: "David Ospina",
+      position: "Keeper",
+      jerseyNumber: 13,
+      dateOfBirth: "1988-08-31",
+      nationality: "Colombia",
+      contractUntil: "2019-06-30",
+      marketValue: null
+    }
+  ]
+}
