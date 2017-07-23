@@ -17,8 +17,6 @@ public class TeamsParser {
 
     public List<Team> toTeams(String jsonString) {
         JsonElement element = jsonParser.parse(jsonString);
-        if (element.isJsonArray())
-            return toTeams(element.getAsJsonArray());
         JsonObject object = element.getAsJsonObject();
         if (object.has("teams"))
             return toTeams(object.get("teams").getAsJsonArray());

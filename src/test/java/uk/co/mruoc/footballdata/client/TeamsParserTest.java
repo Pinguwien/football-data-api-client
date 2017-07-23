@@ -64,13 +64,4 @@ public class TeamsParserTest {
         assertThat(teams.size()).isEqualTo(1);
     }
 
-    @Test
-    public void shouldParseMultipleCompetitionTeams() {
-        String json = loader.loadContent("/competitionTeams.json");
-
-        Collection<Team> teams = parser.toTeams(json);
-
-        assertThat(teams.size()).isEqualTo(2);
-    }
-
 }
