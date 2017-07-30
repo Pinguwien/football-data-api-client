@@ -1,0 +1,65 @@
+{
+  _links: {
+    self: {
+      href: "http://api.football-data.org/v1/competitions/445/fixtures"
+    },
+    competition: {
+      href: "http://api.football-data.org/v1/competitions/445"
+    }
+  },
+  count: 2,
+  fixtures: [
+    {
+      _links: {
+        self: {
+          href: "http://api.football-data.org/v1/fixtures/159316"
+        },
+        competition: {
+          href: "http://api.football-data.org/v1/competitions/445"
+        },
+        homeTeam: {
+          href: "http://api.football-data.org/v1/teams/57"
+        },
+        awayTeam: {
+          href: "http://api.football-data.org/v1/teams/338"
+        }
+      },
+      date: "2017-08-11T18:45:00Z",
+      status: "TIMED",
+      matchday: 1,
+      homeTeamName: "Arsenal FC",
+      awayTeamName: "Leicester City FC",
+      result: {
+        goalsHomeTeam: null,
+        goalsAwayTeam: null
+      },
+      odds: null
+    },
+    {
+      _links: {
+        self: {
+          href: "http://api.football-data.org/v1/fixtures/159324"
+        },
+        competition: {
+          href: "http://api.football-data.org/v1/competitions/445"
+        },
+        homeTeam: {
+          href: "http://api.football-data.org/v1/teams/346"
+        },
+        awayTeam: {
+          href: "http://api.football-data.org/v1/teams/64"
+        }
+      },
+      date: "2017-08-12T11:30:00Z",
+      status: "TIMED",
+      matchday: 1,
+      homeTeamName: "Watford FC",
+      awayTeamName: "Liverpool FC",
+      result: {
+        goalsHomeTeam: null,
+        goalsAwayTeam: null
+      },
+      odds: null
+    }
+  ]
+}
