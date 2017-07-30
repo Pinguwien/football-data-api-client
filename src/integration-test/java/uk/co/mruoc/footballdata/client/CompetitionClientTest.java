@@ -39,15 +39,15 @@ public class CompetitionClientTest {
         assertThat(competition.getCaption()).isEqualTo("Premier League 2017/18");
         assertThat(competition.getLeague()).isEqualTo("PL");
         assertThat(competition.getYear()).isEqualTo("2017");
-        assertThat(competition.getCurrentMatchday()).isEqualTo(1);
-        assertThat(competition.getNumberOfMatchdays()).isEqualTo(38);
+        assertThat(competition.getCurrentMatchDay()).isEqualTo(1);
+        assertThat(competition.getNumberOfMatchDays()).isEqualTo(38);
         assertThat(competition.getNumberOfTeams()).isEqualTo(20);
         assertThat(competition.getNumberOfGames()).isEqualTo(380);
         assertThat(competition.getLastUpdated()).isEqualTo(expectedLastUpdatedDateTime());
     }
 
     private LocalDateTime expectedLastUpdatedDateTime() {
-        return LocalDateTime.of(2017,6, 27, 14, 10, 19, 0);
+        return LocalDateTime.of(2017,7, 29, 11, 30, 11, 0);
     }
 
 }

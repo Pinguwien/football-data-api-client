@@ -94,7 +94,7 @@ public class CompetitionParserTest {
 
         Competition competition = parser.toCompetition(json);
 
-        assertThat(competition.getCurrentMatchday()).isEqualTo(1);
+        assertThat(competition.getCurrentMatchDay()).isEqualTo(1);
     }
 
     @Test
@@ -103,7 +103,7 @@ public class CompetitionParserTest {
 
         Competition competition = parser.toCompetition(json);
 
-        assertThat(competition.getNumberOfMatchdays()).isEqualTo(38);
+        assertThat(competition.getNumberOfMatchDays()).isEqualTo(38);
     }
 
     @Test

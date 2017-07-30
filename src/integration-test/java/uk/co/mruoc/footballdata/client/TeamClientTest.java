@@ -23,7 +23,7 @@ public class TeamClientTest {
 
         assertThat(teams.size()).isEqualTo(20);
         assertThat(teams.get(0).getName()).isEqualTo("Arsenal FC");
-        assertThat(teams.get(19).getName()).isEqualTo("AFC Bournemouth");
+        assertThat(teams.get(19).getName()).isEqualTo("West Ham United FC");
     }
 
     @Test

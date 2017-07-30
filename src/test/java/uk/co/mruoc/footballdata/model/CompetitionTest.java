@@ -100,25 +100,25 @@ public class CompetitionTest {
     }
 
     @Test
-    public void shouldSetCurrentMatchday() {
-        int currentMatchday = 12;
+    public void shouldSetCurrentMatchDay() {
+        int currentMatchDay = 12;
 
         Competition competition = builder
-                .setCurrentMatchday(currentMatchday)
+                .setCurrentMatchDay(currentMatchDay)
                 .build();
 
-        assertThat(competition.getCurrentMatchday()).isEqualTo(currentMatchday);
+        assertThat(competition.getCurrentMatchDay()).isEqualTo(currentMatchDay);
     }
 
     @Test
-    public void shouldSetNumberOfMatchdays() {
-        int numberOfMatchdays = 38;
+    public void shouldSetNumberOfMatchDays() {
+        int numberOfMatchDays = 38;
 
         Competition competition = builder
-                .setNumberOfMatchdays(numberOfMatchdays)
+                .setNumberOfMatchDays(numberOfMatchDays)
                 .build();
 
-        assertThat(competition.getNumberOfMatchdays()).isEqualTo(numberOfMatchdays);
+        assertThat(competition.getNumberOfMatchDays()).isEqualTo(numberOfMatchDays);
     }
 
     @Test

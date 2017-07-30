@@ -13,8 +13,8 @@ public class Competition {
     private final String name;
     private final String league;
     private final String year;
-    private final int currentMatchday;
-    private final int numberOfMatchdays;
+    private final int currentMatchDay;
+    private final int numberOfMatchDays;
     private final int numberOfTeams;
     private final int numberOfGames;
     private final LocalDateTime lastUpdated;
@@ -29,8 +29,8 @@ public class Competition {
         this.name = builder.name;
         this.league = builder.league;
         this.year = builder.year;
-        this.currentMatchday = builder.currentMatchday;
-        this.numberOfMatchdays = builder.numberOfMatchdays;
+        this.currentMatchDay = builder.currentMatchDay;
+        this.numberOfMatchDays = builder.numberOfMatchDays;
         this.numberOfTeams = builder.numberOfTeams;
         this.numberOfGames = builder.numberOfGames;
         this.lastUpdated = builder.lastUpdated;
@@ -68,12 +68,12 @@ public class Competition {
         return year;
     }
 
-    public int getCurrentMatchday() {
-        return currentMatchday;
+    public int getCurrentMatchDay() {
+        return currentMatchDay;
     }
 
-    public int getNumberOfMatchdays() {
-        return numberOfMatchdays;
+    public int getNumberOfMatchDays() {
+        return numberOfMatchDays;
     }
 
     public int getNumberOfTeams() {
@@ -99,8 +99,8 @@ public class Competition {
         private String name;
         private String league;
         private String year;
-        private int currentMatchday;
-        private int numberOfMatchdays;
+        private int currentMatchDay;
+        private int numberOfMatchDays;
         private int numberOfTeams;
         private int numberOfGames;
         private LocalDateTime lastUpdated;
@@ -145,13 +145,13 @@ public class Competition {
             return this;
         }
 
-        public CompetitionBuilder setCurrentMatchday(int currentMatchday) {
-            this.currentMatchday = currentMatchday;
+        public CompetitionBuilder setCurrentMatchDay(int currentMatchday) {
+            this.currentMatchDay = currentMatchday;
             return this;
         }
 
-        public CompetitionBuilder setNumberOfMatchdays(int numberOfMatchdays) {
-            this.numberOfMatchdays = numberOfMatchdays;
+        public CompetitionBuilder setNumberOfMatchDays(int numberOfMatchDays) {
+            this.numberOfMatchDays = numberOfMatchDays;
             return this;
         }
 
