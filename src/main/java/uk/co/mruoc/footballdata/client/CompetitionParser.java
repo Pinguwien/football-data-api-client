@@ -9,6 +9,7 @@ import uk.co.mruoc.footballdata.model.Competition.CompetitionBuilder;
 import java.time.LocalDateTime;
 
 public class CompetitionParser {
+
     private final JsonParser parser = new JsonParser();
     private final JsonExtractor extractor = new JsonExtractor();
 

@@ -14,7 +14,7 @@ public class FixtureTest {
 
     @Test
     public void shouldSetSelfLink() {
-        String selfLink = "http://api.football-data.org/v1/competitions/445/fixtures";
+        String selfLink = "http://api.football-data.org/v1/fixtures/159316";
 
         Fixture fixture = builder
                 .setSelfLink(selfLink)

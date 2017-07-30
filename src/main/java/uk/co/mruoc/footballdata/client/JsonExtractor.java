@@ -2,11 +2,11 @@ package uk.co.mruoc.footballdata.client;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import uk.co.mruoc.footballdata.model.FixtureStatus;
 
 import java.math.BigDecimal;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
@@ -48,6 +48,14 @@ public class JsonExtractor {
         return extractString(item, "href");
     }
 
+    public int extractResultGoals(JsonObject json, String name) {
+        JsonObject result = json.get("result").getAsJsonObject();
+        JsonElement element = result.get(name);
+        if (element.isJsonNull())
+            return 0;
+        return element.getAsInt();
+    }
+
     public LocalDateTime extractDateTime(JsonObject json, String name) {
         String dateString = json.get(name).getAsString();
         return LocalDateTime.parse(dateString, dateTimeFormatter);
@@ -63,6 +71,11 @@ public class JsonExtractor {
     public LocalDate extractLocalDate(JsonObject json, String name) {
         String dateString = json.get(name).getAsString();
         return LocalDate.parse(dateString, localDateFormatter);
+    }
+
+    public FixtureStatus extractFixtureStatus(JsonObject json, String name) {
+        String statusString = json.get(name).getAsString();
+        return FixtureStatus.valueOf(statusString);
     }
 
 }
