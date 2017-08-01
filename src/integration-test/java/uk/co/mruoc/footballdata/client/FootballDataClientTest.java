@@ -18,7 +18,7 @@ public class FootballDataClientTest {
     public void shouldGetCompetitions() {
         List<Competition> competitions = client.getCompetitions();
 
-        assertThat(competitions.size()).isEqualTo(11);
+        assertThat(competitions.size()).isEqualTo(12);
     }
 
     @Test

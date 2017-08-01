@@ -19,9 +19,8 @@ public class CompetitionClientTest {
     public void shouldLoadCompetitions() {
         List<Competition> competitions = competitionClient.load();
 
-        assertThat(competitions.size()).isEqualTo(11);
+        assertThat(competitions.size()).isEqualTo(12);
         assertThat(competitions.get(0).getId()).isEqualTo(444);
-        assertThat(competitions.get(9).getId()).isEqualTo(453);
     }
 
     @Test
