@@ -2,6 +2,7 @@ package uk.co.mruoc.footballdata.client;
 
 import org.junit.Test;
 import uk.co.mruoc.footballdata.model.Competition;
+import uk.co.mruoc.footballdata.model.Fixture;
 import uk.co.mruoc.footballdata.model.Player;
 import uk.co.mruoc.footballdata.model.Team;
 
@@ -54,6 +55,22 @@ public class FootballDataClientTest {
         List<Player> players = client.getTeamPlayers(teamId);
 
         assertThat(players.size()).isEqualTo(28);
+    }
+
+    @Test
+    public void shouldGetFixtures() {
+        List<Fixture> fixtures = client.getFixtures();
+
+        assertThat(fixtures.size()).isEqualTo(85);
+    }
+
+    @Test
+    public void shouldGetFixture() {
+        int fixtureId = 162001;
+
+        Fixture fixture = client.getFixture(fixtureId);
+
+        assertThat(fixture.getSelfLink()).isEqualTo("http://api.football-data.org/v1/fixtures/162001");
     }
     
 }

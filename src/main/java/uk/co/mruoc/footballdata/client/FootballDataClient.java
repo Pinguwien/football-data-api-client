@@ -1,6 +1,7 @@
 package uk.co.mruoc.footballdata.client;
 
 import uk.co.mruoc.footballdata.model.Competition;
+import uk.co.mruoc.footballdata.model.Fixture;
 import uk.co.mruoc.footballdata.model.Player;
 import uk.co.mruoc.footballdata.model.Team;
 import uk.co.mruoc.http.client.ReadOnlyHttpClient;
@@ -12,6 +13,7 @@ public class FootballDataClient {
     private final CompetitionClient competitionClient;
     private final TeamClient teamClient;
     private final PlayerClient playerClient;
+    private final FixtureClient fixtureClient;
 
     public FootballDataClient() {
         this(new TokenHttpClient(), new V1EndpointProvider());
@@ -21,6 +23,7 @@ public class FootballDataClient {
         this.competitionClient = new CompetitionClient(httpClient, endpointProvider);
         this.teamClient = new TeamClient(httpClient, endpointProvider);
         this.playerClient = new PlayerClient(httpClient, endpointProvider);
+        this.fixtureClient = new FixtureClient(httpClient, endpointProvider);
     }
 
     public List<Competition> getCompetitions() {
@@ -43,4 +46,11 @@ public class FootballDataClient {
         return playerClient.loadTeamPlayers(teamId);
     }
 
+    public List<Fixture> getFixtures() {
+        return fixtureClient.load();
+    }
+
+    public Fixture getFixture(int fixtureId) {
+        return fixtureClient.load(fixtureId);
+    }
 }
