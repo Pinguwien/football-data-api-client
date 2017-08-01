@@ -14,4 +14,8 @@ public interface EndpointProvider {
 
     String getPlayers(int teamId);
 
+    String getFixtures();
+
+    String getFixture(int fixtureId);
+
 }

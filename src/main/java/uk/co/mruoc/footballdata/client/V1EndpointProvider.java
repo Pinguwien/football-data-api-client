@@ -34,4 +34,14 @@ public class V1EndpointProvider implements EndpointProvider {
         return getTeam(teamId) + "players/";
     }
 
+    @Override
+    public String getFixtures() {
+        return BASE_URL + "fixtures/";
+    }
+
+    @Override
+    public String getFixture(int fixtureId) {
+        return getFixtures() + fixtureId + "/";
+    }
+
 }

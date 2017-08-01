@@ -16,7 +16,7 @@ public class FixtureParser {
 
     public Fixture toFixture(String jsonString) {
         JsonElement element = parser.parse(jsonString);
-        JsonObject json = element.getAsJsonObject();
+        JsonObject json = element.getAsJsonObject().get("fixture").getAsJsonObject();
         return toFixture(json);
     }
 

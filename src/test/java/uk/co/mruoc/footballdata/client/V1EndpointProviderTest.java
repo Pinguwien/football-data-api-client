@@ -40,4 +40,14 @@ public class V1EndpointProviderTest {
         assertThat(provider.getPlayers(101)).isEqualTo(BASE_URL + "teams/101/players/");
     }
 
+    @Test
+    public void shouldReturnFixturesUrl() {
+        assertThat(provider.getFixtures()).isEqualTo(BASE_URL + "fixtures/");
+    }
+
+    @Test
+    public void shouldReturnFixtureUrl() {
+        assertThat(provider.getFixture(162000)).isEqualTo(BASE_URL + "fixtures/162000/");
+    }
+
 }
