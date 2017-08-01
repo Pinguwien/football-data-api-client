@@ -11,12 +11,16 @@ import java.time.LocalDateTime;
 
 public class FixtureParser {
 
+    private static final String FIELD_NAME = "fixture";
+
     private final JsonParser parser = new JsonParser();
     private final JsonExtractor extractor = new JsonExtractor();
 
     public Fixture toFixture(String jsonString) {
         JsonElement element = parser.parse(jsonString);
-        JsonObject json = element.getAsJsonObject().get("fixture").getAsJsonObject();
+        JsonObject json = element.getAsJsonObject();
+        if (json.has(FIELD_NAME))
+            return toFixture(json.get(FIELD_NAME).getAsJsonObject());
         return toFixture(json);
     }
 

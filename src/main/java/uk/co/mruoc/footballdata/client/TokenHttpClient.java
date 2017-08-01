@@ -2,6 +2,7 @@ package uk.co.mruoc.footballdata.client;
 
 import uk.co.mruoc.http.client.*;
 
+
 public class TokenHttpClient implements ReadOnlyHttpClient {
 
     private final ReadOnlyHttpClient httpClient;
@@ -18,13 +19,12 @@ public class TokenHttpClient implements ReadOnlyHttpClient {
     public TokenHttpClient(HttpClient httpClient, TokenProvider tokenProvider) {
         this.httpClient = httpClient;
         this.token = tokenProvider.getToken();
-        System.out.println("token " + token);
     }
 
     @Override
     public Response get(String endpoint) {
         Headers headers = new Headers();
-        return httpClient.get(endpoint, headers);
+        return get(endpoint, headers);
     }
 
     @Override

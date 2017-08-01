@@ -125,4 +125,13 @@ public class FixtureParserTest {
         assertThat(fixture.getOdds()).isEmpty();
     }
 
+    @Test
+    public void shouldParseSelfLinkFromNamedFixture() {
+        String json = loader.loadContent("/named-fixture.json");
+
+        Fixture fixture = parser.toFixture(json);
+
+        assertThat(fixture.getSelfLink()).isEqualTo("http://api.football-data.org/v1/fixtures/159316");
+    }
+
 }
